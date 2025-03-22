@@ -20,6 +20,10 @@ body {
   font-size: 2rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 main {
   height: 100vh;
 }
