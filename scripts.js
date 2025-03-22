@@ -13,7 +13,7 @@ const gitLink = React.createElement(
     href: "https://github.com/MariyaShusharina/",
     target: "_blank"
   },
-  "GitHub"
+  "Site made by MariyaShusharina"
 );
 const credits = React.createElement("div", {}, gitLink);
 
