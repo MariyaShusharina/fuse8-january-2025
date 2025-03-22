@@ -22,6 +22,12 @@ body {
 
 a {
   text-decoration: none;
+  color: rgba(101, 110, 194, 1);
+  transition: color ease-in-out 0.5s;
+}
+
+a:hover {
+  color: rgba(176, 101, 194, 1);
 }
 
 main {
