@@ -25,6 +25,6 @@ const iconLink = React.createElement(
 );
 const credits = React.createElement("div", {className: "credits"}, gitLink, iconLink);
 
-const renderDiv = React.createElement("div", {}, searchBox, credits);
+const renderDiv = React.createElement("div", {className: "rendered"}, searchBox, credits);
 
 root.render(renderDiv);
