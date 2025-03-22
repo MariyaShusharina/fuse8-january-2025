@@ -21,7 +21,7 @@ const iconLink = React.createElement(
     href: "https://www.freepik.com/icon/magnifying-glass_10975953#fromView=keyword&page=2&position=17&uuid=d3c2bb33-fdb4-4cac-8dee-3396979ef3dd",
     target: "_blank"
   },
-  "Icon by Fathema Khanom"
+  "Icon for favicon by Fathema Khanom"
 );
 const credits = React.createElement("div", {className: "credits"}, gitLink, iconLink);
 
