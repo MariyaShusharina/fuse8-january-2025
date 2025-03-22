@@ -20,6 +20,15 @@ const gitLink = React.createElement(
   },
   "Site made by MariyaShusharina"
 );
+const fuseLink = React.createElement(
+  "a",
+  {
+    href: "https://hr.fuse8.ru/",
+    target: "_blank"
+  },
+  "fuse8"
+);
+const fuseSpan = React.createElement("span", {}, "(as a test task for ", fuseLink, ")");
 const iconLink = React.createElement(
   "a",
   {
@@ -28,7 +37,7 @@ const iconLink = React.createElement(
   },
   "Icon for favicon by Fathema Khanom"
 );
-const credits = React.createElement("div", {className: "credits"}, gitLink, iconLink);
+const credits = React.createElement("div", {className: "credits"}, gitLink, fuseSpan, iconLink);
 
 const renderDiv = React.createElement("div", {className: "rendered"}, searchBox, credits);
 
