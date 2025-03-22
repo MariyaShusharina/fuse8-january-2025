@@ -15,7 +15,15 @@ const gitLink = React.createElement(
   },
   "Site made by MariyaShusharina"
 );
-const credits = React.createElement("div", {}, gitLink);
+const iconLink = React.createElement(
+  "a",
+  {
+    href: "https://www.freepik.com/icon/magnifying-glass_10975953#fromView=keyword&page=2&position=17&uuid=d3c2bb33-fdb4-4cac-8dee-3396979ef3dd",
+    target: "_blank"
+  },
+  "Icon by Fathema Khanom"
+);
+const credits = React.createElement("div", {className: "credits"}, gitLink, iconLink);
 
 const renderDiv = React.createElement("div", {}, searchBox, credits);
 
