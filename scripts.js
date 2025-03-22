@@ -1,14 +1,36 @@
 
+let val = "";
+let query = "";
+const url = "https://rickandmortyapi.com/api/character";
+
 const main = document.createElement("main");
 document.body.appendChild(main);
 
 const root = ReactDOM.createRoot(main);
 
+const search = async (event) => {
+  val = event.target.value;
+
+  if (val.length > 2) {
+    query = `${url}/?name=${val}`;
+
+    console.log(val);
+
+    const result = await fetch(query);
+    const data = await result.json();
+
+    console.log(data);
+
+    showResults(data);
+  }
+}
+
 const searchBox = React.createElement(
   "input",
   {
     placeholder: "Search characters...",
-    autoFocus: true
+    autoFocus: true,
+    onInput: search
   });
 
 const content = React.createElement("div", {className: "content"});
@@ -43,3 +65,7 @@ const credits = React.createElement("div", {className: "credits"}, gitLink, fuse
 const renderDiv = React.createElement("div", {className: "rendered"}, searchBox, content, credits);
 
 root.render(renderDiv);
+
+function showResults(data) {
+  // code here
+}
