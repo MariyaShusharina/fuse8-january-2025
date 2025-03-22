@@ -4,7 +4,12 @@ document.body.appendChild(main);
 
 const root = ReactDOM.createRoot(main);
 
-const searchBox = React.createElement("input", {placeholder: "Search characters..."});
+const searchBox = React.createElement(
+  "input",
+  {
+    placeholder: "Search characters...",
+    autoFocus: true
+  });
 
 
 const gitLink = React.createElement(
