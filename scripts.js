@@ -11,6 +11,7 @@ const searchBox = React.createElement(
     autoFocus: true
   });
 
+const content = React.createElement("div", {className: "content"});
 
 const gitLink = React.createElement(
   "a",
@@ -39,6 +40,6 @@ const iconLink = React.createElement(
 );
 const credits = React.createElement("div", {className: "credits"}, gitLink, fuseSpan, iconLink);
 
-const renderDiv = React.createElement("div", {className: "rendered"}, searchBox, credits);
+const renderDiv = React.createElement("div", {className: "rendered"}, searchBox, content, credits);
 
 root.render(renderDiv);
