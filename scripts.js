@@ -33,7 +33,7 @@ const searchBox = React.createElement(
     onInput: search
   });
 
-const content = React.createElement("div", {className: "content"});
+const searchDiv = React.createElement("div", {}, searchBox);
 
 const gitLink = React.createElement(
   "a",
@@ -62,10 +62,82 @@ const iconLink = React.createElement(
 );
 const credits = React.createElement("div", {className: "credits"}, gitLink, fuseSpan, iconLink);
 
-const renderDiv = React.createElement("div", {className: "rendered"}, searchBox, content, credits);
+const renderDiv = React.createElement("div", {className: "rendered"}, searchDiv, credits);
 
 root.render(renderDiv);
 
 function showResults(data) {
-  // code here
+  
+  let elements = [];
+
+  let lastIndex = 8;
+
+  if (data.results.length < 8) {
+    lastIndex = data.results.length;
+  }
+
+  let amount = 0;
+
+  if (!isNaN(data.results.length)) {
+    amount = data.results.length;
+  }
+
+  const foundSpan = React.createElement("span", {}, `Found characters: ${amount}`);
+  const foundDiv = React.createElement("div", {className: "found"}, foundSpan);
+
+  if (lastIndex > 0) {
+    for (let i = 0; i < lastIndex; i += 1) {
+      const name = data.results[i].name;
+      const status = data.results[i].status;
+      const charUrl = data.results[i].url;
+      const created = new Date(Date.parse(data.results[i].created));
+
+      const day = created.getDate();
+      const month = created.getMonth();
+      const year = created.getFullYear();
+
+      const title = React.createElement("h3", {}, name);
+
+      const statusText = React.createElement("span", {}, "Status: ");
+      let statusBool;
+      switch(status) {
+        case "Alive":
+          statusBool = React.createElement("span", {className: "status-alive"}, status);
+          break;
+        case "Dead":
+          statusBool = React.createElement("span", {className: "status-dead"}, status);
+          break;
+        default:
+          statusBool = React.createElement("span", {}, status);
+          break;
+        }
+      const statusDiv = React.createElement("div", {}, statusText, statusBool);
+
+      const dateSpan = React.createElement("span", {}, `Created: ${day}.${month}.${year}`);
+      const dateDiv = React.createElement("div", {className: "date-div"}, dateSpan);
+
+      const propsDiv = React.createElement("div", {className: "props-div"}, statusDiv, dateDiv);
+
+      const charDiv = React.createElement("div", {className: "card"}, title, propsDiv);
+
+      const urlElement = React.createElement(
+        "a",
+        {
+          key: i,
+          href: charUrl,
+          target: "_blank"
+        },
+        charDiv);
+
+      elements.push(urlElement);
+    }
+  }
+
+  const updatedSearchDiv = React.createElement("div", {}, searchBox, foundDiv);
+
+  const content = React.createElement("div", {className: "content"}, elements);
+
+  const newRenderDiv = React.createElement("div", {className: "rendered"}, updatedSearchDiv, content, credits);
+
+  root.render(newRenderDiv);
 }
